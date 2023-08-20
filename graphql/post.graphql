@@ -1,0 +1,20 @@
+extend type Query {
+    "get all records"
+    posts:[Post!] @all
+    "Find a single user by an identifying attribute."
+    post(id: ID @eq): Post @find
+
+}
+
+extend type Mutation{
+    deletePost(id: ID!): Post! @delete
+}
+
+"Account of a person who utilizes this application."
+type Post {
+    id: ID!
+    title: String!
+    content: String
+    created_at: String
+    user: User @belongsTo
+}
